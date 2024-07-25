@@ -27,7 +27,7 @@ export default function loginPage() {
           className="w-full object-contain"
         />
       </div>
-      <div className="flex justify-center items-center h-screen flex-col w-full md:w-[500px] px-4">
+      <div className="flex justify-center items-center h-screen flex-col w-full lg:w-[500px] px-4">
         <div className="flex justify-start items-start mb-6 w-full flex-col">
           <Image src="/logo.svg" width={150} height={150} alt="logo" />
           <h1 className="text-cabbage font-bold text-2xl md:text-3xl mt-2">
