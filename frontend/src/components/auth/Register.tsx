@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import myAxios from "@/lib/axios.config";
 import { REGISTER_URL } from "@/lib/apiEndPoints";
 import { toast } from "react-toastify";
+import { signIn } from "next-auth/react";
 
 export default function Register() {
   const [authState, setAuthState] = useState({
@@ -38,8 +39,13 @@ export default function Register() {
       .post(REGISTER_URL, authState)
       .then((res) => {
         setLoading(false);
-        const response = res.data;
         toast.success("Account created successfully! we are logging you");
+        signIn("credentials", {
+          email: authState.email,
+          password: authState.password,
+          redirect: true,
+          callbackUrl: "/",
+        });
       })
       .catch((err) => {
         setLoading(false);
