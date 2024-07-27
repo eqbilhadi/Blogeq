@@ -139,6 +139,9 @@ export default function ProfileMenu() {
                 accept="image/png,image/svg,image/jpg,image/jpeg,image/gif,image/webp"
                 onChange={handleImageChange}
               />
+              <span className="text-red-400 text-xs">
+                {errors.profile_image?.[0]}
+              </span>
             </div>
             <div className="mb-2">
               <Button className="w-full" disabled={loading}>

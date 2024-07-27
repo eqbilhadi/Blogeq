@@ -9,3 +9,12 @@ export function cn(...inputs: ClassValue[]) {
 export const getImageUrl = (image: string): string => {
   return `${Env.API_URL}/storage/${image}`;
 };
+
+export const isValidUrl = (url: string): boolean => {
+  try {
+    new URL(url);
+    return true
+  } catch (error) {
+    return false;
+  }
+};

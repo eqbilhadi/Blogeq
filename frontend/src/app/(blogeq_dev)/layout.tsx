@@ -12,7 +12,7 @@ export default async function BlogeqDevLayout({
       <Navbar />
       <div className="flex">
         <Sidebar />
-        <div className="flex justify-center items-center w-full overflow-y-scroll">
+        <div className="flex justify-center items-center w-full">
           {children}
         </div>
       </div>
