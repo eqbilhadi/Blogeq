@@ -25,7 +25,7 @@ class PostController extends Controller
             'vote',
             'comment_count',
             'description'
-        )->orderByDesc('id')->cursorPaginate(20);
+        )->with("user")->orderByDesc('id')->cursorPaginate(20);
 
         return response()->json($posts);
     }
