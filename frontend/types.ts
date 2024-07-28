@@ -16,3 +16,34 @@ type PostStateType = {
   image_url?: string;
   description?: string;
 };
+
+type ApiResponseType<T> = {
+  data: Array<T> | [];
+  path: string;
+  per_page: number;
+  next_cursor?: string;
+  next_page_url?: string;
+  prev_cursor?: string;
+  prev_page_url?: string;
+};
+
+type PostType = {
+  id: number;
+  user_id: number;
+  title: string;
+  image_url: string;
+  url: string;
+  created_at: string;
+  vote: number;
+  comment_count: number;
+  description: string;
+  user: UserType;
+};
+
+type UserType = {
+  id?: number;
+  name?: string;
+  profile_image?: string;
+  username?: string;
+  email?: string;
+};

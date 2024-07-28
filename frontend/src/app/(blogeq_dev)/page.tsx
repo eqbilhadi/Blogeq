@@ -1,15 +1,21 @@
-import { Button } from "@/components/ui/button";
 import React from "react";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/authOptions";
-import Navbar from "@/components/base/Navbar";
+import {
+  authOptions,
+  CustomSession,
+} from "../api/auth/[...nextauth]/authOptions";
+import { fetchPosts } from "@/dateFetch/postFetch";
+import Posts from "@/components/post/Posts";
 
 export default async function App() {
-  const session = await getServerSession(authOptions);
+  const session: CustomSession | null = await getServerSession(authOptions);
+  const posts: ApiResponseType<PostType> = await fetchPosts(
+    session?.user?.token!
+  );
 
   return (
     <div>
-      <h1>I am homepage</h1>
+      <Posts data={posts} />
     </div>
   );
 }
